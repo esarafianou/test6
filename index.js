@@ -6,7 +6,7 @@ function somethingFalse() {
   return false
 }
 
-function validate1true(a, c) {
+function securetrue(a, c) {
   let foo = a.b
   if (!foo || somethingTrue()) {
     throw Error('error')
@@ -14,7 +14,7 @@ function validate1true(a, c) {
   c(1)
 }
 
-function validate1false(a, c) {
+function securefalse(a, c) {
   let foo = a.b
   if (!foo || somethingFalse()) {
     throw Error('error')
@@ -23,7 +23,7 @@ function validate1false(a, c) {
 }
 
 
-function validate2true(a, c) {
+function insecuretrue(a, c) {
   let foo = a.b
   if (foo && somethingTrue()) {
     throw Error('error')
@@ -31,10 +31,43 @@ function validate2true(a, c) {
   c(1)
 }
 
-function validate2false(a, c) {
+function insecurefalse(a, c) {
   let foo = a.b
   if (foo && somethingFalse()) {
     throw Error('error')
+  }
+  c(1)
+}
+
+function insecure2(a, c) {
+  let foo = a.b
+  if (foo || somethingFalse()) {
+    throw Error('error')
+  }
+  c(1)
+}
+
+function insecure3(a, c) {
+  let foo = a.b
+  if (!foo || somethingFalse()) {
+    console.log("error")
+  }
+  c(1)
+}
+
+
+function insecure4(a, c) {
+  let foo = a.b
+  if (!foo) {
+    console.log("error")
+  }
+  c(1)
+}
+
+function secure4(a, c) {
+  let foo = a.b
+  if (!foo) {
+    throw Error("error")
   }
   c(1)
 }
