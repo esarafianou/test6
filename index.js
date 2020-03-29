@@ -62,7 +62,7 @@ function secure2e(a, c, d) {
   let bar = d || null
   let something = bar === foo
   if (!foo || !something) {
-    c('error')
+    return c('error')
   }
   c(null)
 }
@@ -71,7 +71,7 @@ function secure2f(a, c, d) {
   let bar = d || null
   let something = bar === foo
   if (!foo || !something) {
-    c('error')
+    return c('error')
   }
   let callback  = function () {
     c(null)
