@@ -22,6 +22,21 @@ function securefalse(a, c) {
   c(1)
 }
 
+function secureMaybe(a, c) {
+  let foo = a.b
+  if (!foo || !somethingFalse()) {
+    throw Error('error')
+  }
+  c(1)
+}
+
+function secureMaybe2(a, c) {
+  let foo = a.b
+  if (!foo || !somethingTrue()) {
+    throw Error('error')
+  }
+  c(1)
+}
 
 function insecuretrue(a, c) {
   let foo = a.b
