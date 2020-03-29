@@ -66,6 +66,25 @@ function secure2e(a, c, d) {
   }
   c(null)
 }
+
+function secure2g(a, c, d) {
+  let foo = !a.b
+  let bar = d || null
+  let something = bar === !foo
+  if (foo || !something) {
+    return c('error')
+  }
+  c(null)
+}
+
+function secure2h(a, c, d) {
+  let foo = !a.b
+  if (foo) {
+    return c('error')
+  }
+  c(null)
+}
+
 function secure2f(a, c, d) {
   let foo = a.b
   let bar = d || null
